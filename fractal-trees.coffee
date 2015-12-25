@@ -35,7 +35,6 @@ class TreeStick
         return x * (180/pi)
 
     constructor: (params) ->
-        #console.log params
         {
             @start,
             @direction,
@@ -47,8 +46,7 @@ class TreeStick
             @children
         } = params
 
-        @delta_thickness = (@begin_thickness - @end_thickness) /
-TRAPEZOIDAL_SECTIONS
+        @delta_thickness = (@begin_thickness - @end_thickness) / TRAPEZOIDAL_SECTIONS
         @delta_length = @length / TRAPEZOIDAL_SECTIONS
 
         @current_position = @start
@@ -57,10 +55,8 @@ TRAPEZOIDAL_SECTIONS
         perp = @direction + pi/2
 
         @current_edges = [
-            [@start[0] + (@begin_thickness/2)*(cos perp), @start[1] +
-(@begin_thickness/2)*(sin perp)],
-            [@start[0] - (@begin_thickness/2)*(cos perp), @start[1] -
-(@begin_thickness/2)*(sin perp)]
+            [@start[0] + (@begin_thickness/2)*(cos perp), @start[1] + (@begin_thickness/2)*(sin perp)],
+            [@start[0] - (@begin_thickness/2)*(cos perp), @start[1] - (@begin_thickness/2)*(sin perp)]
         ]
 
         @trapezoids = []
